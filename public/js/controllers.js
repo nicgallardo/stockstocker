@@ -13,7 +13,7 @@ app.controller('StocksController', function($scope, $http){
   method: 'GET',
   url: '/symbols.json'
   }).then(function successCallback(response) {
-    $scope.companies = response;
+    $scope.allCompanies = response;
     console.log(response);
 
   })

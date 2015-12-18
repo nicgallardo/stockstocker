@@ -1,8 +1,8 @@
 <div>
-  <div ng-repeat="companies in allCompanies">
-    <div ng-repeat="company in companies">
-        {{company.name}}
+  <input type="search" ng-model="q" placeholder="filter companies..." aria-label="filter companies" />
+  <div ng-repeat="companies in allCompanies track by $index">
+    <div ng-repeat="company in companies | filter:q as results">
+      {{company.name}} | symbol : {{company.symbol}}
     </div>
-  </div>
-    <!-- {{companies}} -->
+  <div>
 </div>
