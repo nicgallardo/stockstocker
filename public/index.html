@@ -9,7 +9,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
     <base href="/">
-  <body ng-controller="MainController">
-    <script type="text/javascript" src="/js/angular.js"></script>
+  <body>
+    <nav>
+      <a href="/">home</a> |
+      <a href="/stocks">stocks</a> |
+    </nav>
+    {{10+10}}
+    <ng-view></ng-view>
+    <div>
+      FOOTER
+    </div>
+    <script src="/js/module.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/routes.js"></script>
   </body>
 </html>

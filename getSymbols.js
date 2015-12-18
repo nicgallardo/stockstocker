@@ -4,6 +4,7 @@ textToJSON(data)
 function textToJSON(argument) {
   var  companyArray= data.split('\n')
   var companies = {};
+  var results = [];
   var name;
   for (var i = 0; i < companyArray.length; i++) {
     var splitCompany = companyArray[i].split("|");
@@ -14,9 +15,12 @@ function textToJSON(argument) {
         name = tmp[0]
       }
     }
-    companies[name] = splitCompany[0];
+    companies["name"] = name, companies["symbol"] = splitCompany[0];
+    results.push(companies);
+    companies = {};
   }
-  fs.writeFile('symbols.json', JSON.stringify(companies), function (err) {
+
+  fs.writeFile('symbols.json', JSON.stringify(results), function (err) {
   if (err) throw err;
   console.log('It\'s saved!');
   });
