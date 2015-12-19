@@ -1,8 +1,24 @@
 <div>
-  <input type="search" ng-model="q" placeholder="filter companies..." aria-label="filter companies" />
-  <div ng-repeat="companies in allCompanies track by $index">
-    <div ng-repeat="company in companies | filter:q as results">
-      {{company.name}} | symbol : {{company.symbol}}
-    </div>
-  <div>
+  <div class="allCompanies">
+    <!-- <div ng-repeat="companies in allCompanies track by $index"> -->
+        <div class="dropdown dropdown-scroll">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Select <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation">
+                    <div class="input-group input-group-sm search-control">
+                          <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-search"></span>
+                          </span>
+                        <input type="text" class="form-control" placeholder="Query" ng-model="query"></input>
+                    </div>
+                </li>
+                <div ng-repeat='company in allCompanies | filter:query'>
+                  <a ng-href="stocks/{{company.symbol}}"> {{company.name}} | Symbol: {{company.symbol}} </a>
+
+                </div>
+            </ul>
+        </div>
+    <div>
+  </div>
 </div>
